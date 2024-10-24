@@ -1,5 +1,9 @@
 document.addEventListener('DOMContentLoaded', function () {
+<<<<<<< HEAD
     const apiUrl = 'https://aurdino-control-backend.vercel.app/data';
+=======
+    const apiUrl = 'https://aurdino-control-backend.vercel.app/data';  // Replace with your actual API URL
+>>>>>>> f6ddb0cdea9e3a1b5ddfdc4b34d13ea086eee602
 
     // Function to fetch data from the API
     function fetchData() {
@@ -35,5 +39,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Call the fetchData function on page load
     fetchData();
+<<<<<<< HEAD
     setInterval(fetchData, 5000);  // Fetch new data every 5 seconds
+=======
+
+    // Fetch data every 5 seconds (optional)
+    setInterval(fetchData, 1000);  // Fetch new data every 5 seconds
+>>>>>>> f6ddb0cdea9e3a1b5ddfdc4b34d13ea086eee602
 });
