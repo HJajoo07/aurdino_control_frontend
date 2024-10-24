@@ -1,9 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
-<<<<<<< HEAD
-    const apiUrl = 'https://aurdino-control-backend.vercel.app/data';
-=======
     const apiUrl = 'https://aurdino-control-backend.vercel.app/data';  // Replace with your actual API URL
->>>>>>> f6ddb0cdea9e3a1b5ddfdc4b34d13ea086eee602
 
     // Function to fetch data from the API
     function fetchData() {
@@ -12,20 +8,25 @@ document.addEventListener('DOMContentLoaded', function () {
                 if (!response.ok) {
                     throw new Error(`HTTP error! status: ${response.status}`);
                 }
-                return response.json();
+                return response.json();  // Parse the JSON response
             })
             .then(data => {
                 const dataContainer = document.getElementById('data-container');
-                dataContainer.innerHTML = ''; // Clear the container
 
+                // Clear the container before adding new data
+                dataContainer.innerHTML = '';
+
+                // Check if the 'data' array exists and has items
                 if (data.data && data.data.length > 0) {
+                    // Loop through the array and create divs for each item
                     data.data.forEach(item => {
                         const dataItem = document.createElement('div');
                         dataItem.textContent = item;
-                        dataItem.classList.add('data-item');
+                        dataItem.classList.add('data-item');  // Add class for styling
                         dataContainer.appendChild(dataItem);
                     });
                 } else {
+                    // If no data received, display a message
                     dataContainer.textContent = 'No data received yet.';
                 }
             })
@@ -34,16 +35,11 @@ document.addEventListener('DOMContentLoaded', function () {
                 const dataContainer = document.getElementById('data-container');
                 dataContainer.textContent = `Error fetching data: ${error.message}`;  // Show the error message
             });
-            
     }
 
     // Call the fetchData function on page load
     fetchData();
-<<<<<<< HEAD
-    setInterval(fetchData, 5000);  // Fetch new data every 5 seconds
-=======
 
     // Fetch data every 5 seconds (optional)
     setInterval(fetchData, 1000);  // Fetch new data every 5 seconds
->>>>>>> f6ddb0cdea9e3a1b5ddfdc4b34d13ea086eee602
 });
