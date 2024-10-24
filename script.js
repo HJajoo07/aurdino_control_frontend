@@ -1,15 +1,15 @@
-
-
 document.addEventListener('DOMContentLoaded', async function () {
-    // Using a CORS proxy
-    const apiUrl = 'https://cors-anywhere.herokuapp.com/https://aurdino-control-backend.vercel.app/data';
+    // Use the API URL directly without the CORS proxy if CORS is handled in the backend
+    const apiUrl = 'https://aurdino-control-backend.vercel.app/data';
 
     // Function to fetch data from the API
     async function fetchData() {
         try {
             const response = await fetch(apiUrl, {
                 method: 'GET', // Specify the method
-                mode: 'cors'   // Ensure the mode is set to 'cors'
+                headers: {
+                    'Content-Type': 'application/json' // Set Content-Type header if needed
+                }
             });
 
             if (!response.ok) {
@@ -48,4 +48,3 @@ document.addEventListener('DOMContentLoaded', async function () {
     // Fetch data every 5 seconds (optional)
     setInterval(fetchData, 5000);  // Fetch new data every 5 seconds
 });
-
